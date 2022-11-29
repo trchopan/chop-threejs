@@ -1,0 +1,125 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #221f29;
+    overflow: hidden;
+    font-family: 'Play', sans-serif;
+    color: #fff;
+    font-size: 0.9rem;
+    -webkit-font-smoothing: antialiased;
+    overscroll-behavior-y: none;
+    position: relative;
+}
+
+#root {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+}
+
+code {
+    color: red;
+}
+
+.styled-scrollbars {
+    --scrollbar-foreground: #ff6266;
+    --scrollbar-background: #221f29;
+    scrollbar-color: var(--scrollbar-foreground) var(--scrollbar-background);
+}
+.styled-scrollbars::-webkit-scrollbar {
+    width: 3px; /* Mostly for vertical scrollbars */
+    height: 3px; /* Mostly for horizontal scrollbars */
+}
+.styled-scrollbars::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-foreground);
+}
+.styled-scrollbars::-webkit-scrollbar-track {
+    background: var(--scrollbar-background);
+}
+
+.container {
+    display: block;
+    width: 100vw;
+    padding: 0.5rem;
+}
+
+.content_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .greeting {
+        height: 100vh;
+        max-width: 600px;
+        padding: 0 0.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .avatar {
+            height: 50vh;
+            @media (max-width: 450px) {
+                height: 30vh;
+            }
+            display: flex;
+            margin-bottom: 2rem;
+            justify-content: end;
+            flex-direction: column;
+            img {
+                height: 100%;
+                max-height: 300px;
+            }
+        }
+        .typing {
+            height: 8.6rem;
+            display: flex;
+            width: 100%;
+            div {
+                font-size: 20px;
+                font-weight: 400;
+                line-height: 1.68rem;
+                color: #ff6266;
+                letter-spacing: 0.1em;
+                word-spacing: 0.3em;
+                text-align: center;
+                i {
+                    color: #ff9999;
+                    font-weight: bold;
+                }
+            }
+        }
+        .scroll-down {
+            opacity: 0;
+            height: 3rem;
+            transition: opacity 500ms;
+            text-align: center;
+        }
+        .active {
+            opacity: 1;
+        }
+    }
+    .projects {
+        height: 300vh;
+        .project-head {
+            position: sticky;
+            text-align: center;
+        }
+    }
+}
+
+.fixed-detail {
+    position: fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    padding: 2rem;
+    background: #00000060;
+    backdrop-filter: blur(2px);
+}
