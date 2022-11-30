@@ -1,16 +1,27 @@
+import 'normalize.css';
 import React, {Suspense, useRef} from 'react';
-import {ContactShadows, Environment, Scroll, ScrollControls, Stats} from '@react-three/drei';
-import {Html} from '@react-three/drei';
+import {
+    ContactShadows,
+    Environment,
+    Html,
+    Scroll,
+    ScrollControls,
+    Stats,
+    useProgress,
+} from '@react-three/drei';
 import {Canvas} from '@react-three/fiber';
 import LaptopGroup from './LaptopGroup';
 import Overlay from './Overlay';
 import {ScrollHelper} from './ScrollHelper';
-import {isMobile} from './store';
-import LineGroup from './LineGroup';
+import {isMobile, store} from './store';
 import PlaneGroup from './PlaneGroup';
+import {useSnapshot} from 'valtio';
+import ProjectDetail from './ProjectDetail';
 
 function App() {
     const overlay = useRef<HTMLElement>(null);
+    const snap = useSnapshot(store);
+    const {active, progress, errors, item, loaded, total} = useProgress();
 
     return (
         <>
@@ -21,7 +32,16 @@ function App() {
                     zoom: isMobile() ? 0.9 : 1.3,
                 }}
             >
-                <Suspense fallback={<Html center className="loading" children="Loading..." />}>
+                <Suspense
+                    fallback={
+                        <Html center>
+                            <div className="loader">
+                                <div>Loading</div>
+                                <div>{progress.toFixed(0)} %</div>
+                            </div>
+                        </Html>
+                    }
+                >
                     <pointLight position={[10, 10, 10]} intensity={1.5} color={'#f0f0f0'} />
                     <ScrollControls pages={5}>
                         <ScrollHelper />
@@ -36,13 +56,16 @@ function App() {
                 </Suspense>
                 {import.meta.env.DEV && <Stats />}
             </Canvas>
-            <div className="mask-layer"></div>
-            <div className="fixed-detail">
-                <h1>Cardano Globe</h1>
-                <p>Consectetur nisi asperiores blanditiis repudiandae esse Reiciendis officia molestias ipsam recusandae quisquam tempora. Sit sint dignissimos voluptatum fugit error. Assumenda.</p>
-                <p>Consectetur nisi asperiores blanditiis repudiandae esse Reiciendis officia molestias ipsam recusandae quisquam tempora. Sit sint dignissimos voluptatum fugit error. Assumenda.</p>
-                <a href="https://globe.linatr.me/" target={"_blank"}>Visit website</a>
-            </div>
+            {snap.selected && (
+                <div className="fixed-detail styled-scrollbars">
+                    <div className="fixed-container">
+                        <ProjectDetail selected={snap.selected} />
+                    </div>
+                    <button className="back-button" onClick={() => (store.selected = null)}>
+                        Back
+                    </button>
+                </div>
+            )}
         </>
     );
 }

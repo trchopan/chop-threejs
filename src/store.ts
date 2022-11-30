@@ -9,5 +9,5 @@ export const isIOs = () =>
 
 export const store = proxy<{
     laptopOpen: boolean;
-    selected: JSX.Element | null;
+    selected: number | null;
 }>({laptopOpen: false, selected: null});

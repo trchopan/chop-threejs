@@ -23,7 +23,7 @@ function PlaneGroup() {
             <Text
                 ref={pRef}
                 rotation={[Math.PI / 2, Math.PI, 0]}
-                position={[0, -25, 3]}
+                position={[0, -25, 6]}
                 color={'#ff6266'}
                 fontSize={0.8}
                 maxWidth={10}
