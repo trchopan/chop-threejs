@@ -45,9 +45,8 @@ function Laptop(props: {open: boolean; hinge: any; screen?: number}) {
     const screenMap: {
         texture: THREE.VideoTexture | null;
         text: JSX.Element | null;
-        link: string;
     }[] = [
-        {texture: null, text: null, link: ''},
+        {texture: null, text: null},
         {
             texture: isIOs()
                 ? useLoader(TextureLoader, '/cardano-globe.png')
@@ -61,7 +60,6 @@ function Laptop(props: {open: boolean; hinge: any; screen?: number}) {
                     textWidth={6.6}
                 />
             ),
-            link: 'https://globe.linatr.me/',
         },
         {
             texture: isIOs()
@@ -76,7 +74,20 @@ function Laptop(props: {open: boolean; hinge: any; screen?: number}) {
                     textWidth={6.9}
                 />
             ),
-            link: 'http://near-line-connect-ui.vercel.app/',
+        },
+        {
+            texture: isIOs()
+                ? useLoader(TextureLoader, '/firebase-auth.png')
+                : useVideoTexture('/firebase-auth.mp4', {}),
+            text: (
+                <LaptopProjectText
+                    title="Firebase Auth - Rust crate"
+                    titlePos={[-0.85, 7.7, 0.5]}
+                    text="A simple and small Rust Actix web framework Extractor for verifing JWT token from Firebase Authentication."
+                    textPos={[-0.12, 6.7, 0.5]}
+                    textWidth={7.5}
+                />
+            ),
         },
         {
             texture: isIOs()
@@ -91,10 +102,26 @@ function Laptop(props: {open: boolean; hinge: any; screen?: number}) {
                     textWidth={7.5}
                 />
             ),
-            link: 'https://github.com/trchopan/web-scalpel',
         },
-        {texture: null, text: null, link: ''},
-        {texture: null, text: null, link: ''},
+        {
+            texture: isIOs()
+                ? useLoader(TextureLoader, '/chess-bevy.png')
+                : useVideoTexture('/chess-bevy.mp4', {}),
+            text: (
+                <LaptopProjectText
+                    title="Chess using Bevy engine"
+                    titlePos={[-1.05, 7.5, 0.5]}
+                    text="Chess game writen using Rust language and Bevy game engine."
+                    textPos={[-0.12, 6.7, 0.5]}
+                    textWidth={7.5}
+                />
+            ),
+        },
+
+        {texture: null, text: null},
+        {texture: null, text: null},
+        {texture: null, text: null},
+        {texture: null, text: null},
     ];
 
     for (const t of screenMap) {

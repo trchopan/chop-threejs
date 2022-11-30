@@ -6,7 +6,8 @@ import {useRef, useState} from 'react';
 import {Group} from 'three';
 import {useSnapshot} from 'valtio';
 import Laptop from './Laptop';
-import {store} from './store';
+import {projectPages, store, totalPages} from './store';
+import {range} from 'lodash';
 
 function LaptopGroup() {
     const ref = useRef<Group | null>(null);
@@ -17,8 +18,13 @@ function LaptopGroup() {
 
     useFrame((state, delta) => {
         if (scroll) {
-            store.laptopOpen = scroll.visible(1 / 5 + 0.1, 3 / 5);
-            setScreen([0, 1, 2, 3, 4, 5].find(i => scroll.visible(i / 5 + 0.1, 1 / 5)));
+            store.laptopOpen = scroll.visible(
+                1 / totalPages + 0.1,
+                (projectPages - 1) / totalPages
+            );
+            setScreen(
+                range(totalPages).find(i => scroll.visible(i / totalPages + 0.1, 1 / totalPages))
+            );
         }
         if (ref.current) {
             const targetX = snap.selected !== null ? -5 : 0.01;

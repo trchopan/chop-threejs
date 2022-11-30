@@ -13,7 +13,7 @@ import {Canvas} from '@react-three/fiber';
 import LaptopGroup from './LaptopGroup';
 import Overlay from './Overlay';
 import {ScrollHelper} from './ScrollHelper';
-import {isMobile, store} from './store';
+import {isMobile, store, totalPages} from './store';
 import PlaneGroup from './PlaneGroup';
 import {useSnapshot} from 'valtio';
 import ProjectDetail from './ProjectDetail';
@@ -43,7 +43,7 @@ function App() {
                     }
                 >
                     <pointLight position={[10, 10, 10]} intensity={1.5} color={'#f0f0f0'} />
-                    <ScrollControls pages={5}>
+                    <ScrollControls pages={totalPages}>
                         <ScrollHelper />
                         <Scroll html>
                             <Overlay ref={overlay} />

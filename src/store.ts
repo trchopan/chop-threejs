@@ -1,5 +1,12 @@
 import {proxy} from 'valtio';
 
+export const projectPages = 8;
+
+export const totalPages =
+    1 + // Intro page
+    projectPages +
+    1; // Footer page
+
 export const isMobile = () =>
     /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
     /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform);

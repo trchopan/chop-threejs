@@ -87,6 +87,7 @@ button:hover {
             }
         }
         .typing {
+            display: flex;
             width: 100%;
             div {
                 font-size: 20px;
@@ -110,13 +111,6 @@ button:hover {
         }
         .active {
             opacity: 1;
-        }
-    }
-    .projects {
-        height: 300vh;
-        .project-head {
-            position: sticky;
-            text-align: center;
         }
     }
 }
