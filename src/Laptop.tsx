@@ -117,7 +117,6 @@ function Laptop(props: {open: boolean; hinge: any; screen?: number}) {
                 />
             ),
         },
-
         {texture: null, text: null},
         {texture: null, text: null},
         {texture: null, text: null},
@@ -135,6 +134,7 @@ function Laptop(props: {open: boolean; hinge: any; screen?: number}) {
     }, [props.screen]);
 
     const onClick = () => {
+        if (!screenMap[props.screen ?? -1]?.text) return;
         store.selected = props.screen ?? null;
         console.log('>>', store.selected);
     };

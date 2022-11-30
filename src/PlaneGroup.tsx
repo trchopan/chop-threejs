@@ -9,6 +9,7 @@ import {totalPages} from './store';
 function PlaneGroup() {
     const ref = useRef<any>(null);
     const pRef = useRef<any>(null);
+    const cRef = useRef<any>(null);
     const scroll = useScroll();
     const [showLines, setShowLines] = useState(false);
 
@@ -17,9 +18,12 @@ function PlaneGroup() {
             const target = scroll.offset * (totalPages * -32);
             ref.current.position.z = THREE.MathUtils.damp(ref.current.position.z, target, 4, delta);
         }
-        if (pRef.current) {
-            const r1 = scroll.range(0 / totalPages, 1 / totalPages);
-            pRef.current.fillOpacity = r1;
+        if (pRef.current && cRef.current) {
+            const pRange = scroll.range(0.05, 1 / totalPages - 0.05);
+            pRef.current.fillOpacity = pRange;
+            const cRange = scroll.range((totalPages - 1) / totalPages - 0.11, 1 / totalPages);
+            cRef.current.fillOpacity = cRange;
+            console.log('>>', pRange, cRange, 1 / totalPages - 0.05);
         }
         setShowLines(scroll.visible(1 / totalPages + 0.11, 1));
     });
@@ -33,7 +37,7 @@ function PlaneGroup() {
             <planeGeometry args={[200, totalPages * 100, 100, 100]} />
             <meshBasicMaterial wireframe color="#201b2c" />
             {showLines &&
-                [points1, points2, points3].map((points, i)=> (
+                [points1, points2, points3].map((points, i) => (
                     <Line key={i} points={points} color="#ff6266" lineWidth={2} />
                 ))}
             <Text
@@ -54,6 +58,7 @@ function PlaneGroup() {
                 Projects
             </Text>
             <Text
+                ref={cRef}
                 rotation={[Math.PI / 2, Math.PI, 0]}
                 position={[0, -300, 7]}
                 color={'#ff6266'}
@@ -65,7 +70,7 @@ function PlaneGroup() {
                 font="/Play-Regular.ttf"
                 anchorX="center"
                 anchorY="middle"
-                fillOpacity={1}
+                fillOpacity={0}
             >
                 Contact Me
             </Text>
