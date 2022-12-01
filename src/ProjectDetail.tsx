@@ -11,6 +11,7 @@ interface Project {
 
 export const projectMap: Project[] = [
     {title: '', client: '', year: '', content: [], tech: [], link: ''},
+    // 1
     {
         title: 'Cardano Globe',
         client: 'LN₳TR - Cardano Stake Pool from Vietnam',
@@ -23,6 +24,7 @@ export const projectMap: Project[] = [
         tech: ['Cardano blockchain', 'Firebase', 'NodeJs', 'Vue + Vite'],
         link: 'https://globe.linatr.me/',
     },
+    // 2
     {
         title: 'Near Line Connect',
         client: 'LINE UIT Workshop',
@@ -41,16 +43,36 @@ export const projectMap: Project[] = [
         ],
         link: 'https://chop.ink/posts/near-line-connect/',
     },
+    // 3
     {
-        title: 'Firebase Auth - Rust crate',
+        title: 'Cardano Commands Stake Pools',
+        client: 'ARMDA Stake Pool - armadacardano.io',
+        year: '2021',
+        content: [
+            'As a Cardano Pool operator, I have setup stake pools both on testnets and mainnet since early 2021.',
+            'During my setups, the part where I need to manage the keys was the most confusing and error prone. So I wrote this tool to help me automate the steps in handling the pool keys.',
+        ],
+        tech: ['Cardano Blockchain', 'NodeJs', 'Google Cloud Platform'],
+        link: 'https://github.com/trchopan/cardano-commands',
+    },
+    // 4
+    {
+        title: 'Scheduled Blocks',
         year: '2022',
         content: [
-            'I work frequently with Firebase and when I begin to programing in Rust, there was no package for the Firebase tool. So I decided to crate one.',
-            'This crate will help initialize and integrate the Firebase Authentication service to the popular Actix web frame work (one of the fastest web frameworks out there)',
+            'Use the Epoch Nonce seeds and compare with the Pool sigma derived VRF key of the Pool to calculate the block assignment schedule.',
+            'Reduce the dependancy on running a complete Cardano node as data is taken from blockfrost.io and armada-alliance.com.',
+            'This is a rewritten in Haskell of the ScheduledBlocks in Python.',
         ],
-        tech: ['Rust', 'Firebase'],
-        link: 'https://crates.io/crates/firebase-auth',
+        tech: [
+            'Cardano Blockchain',
+            'Haskell',
+            'Cryptographic tool libsodium',
+            'Verifiable random function',
+        ],
+        link: 'https://github.com/trchopan/scheduled-blocks',
     },
+    // 5
     {
         title: 'Web Scalpel in Haskell',
         year: '2020',
@@ -62,6 +84,7 @@ export const projectMap: Project[] = [
         tech: ['Haskell', 'Puppeteer', 'Svelte', 'Raspberry Pi'],
         link: 'https://github.com/trchopan/web-scalpel',
     },
+    // 6
     {
         title: 'Chess using Bevy engine',
         year: '2022',
@@ -72,12 +95,17 @@ export const projectMap: Project[] = [
         tech: ['Rust', 'Bevy'],
         link: 'https://github.com/trchopan/chess-bevy',
     },
-
-    {title: '', client: '', year: '', content: [], tech: [], link: ''},
-    {title: '', client: '', year: '', content: [], tech: [], link: ''},
-    {title: '', client: '', year: '', content: [], tech: [], link: ''},
-    {title: '', client: '', year: '', content: [], tech: [], link: ''},
-    {title: '', client: '', year: '', content: [], tech: [], link: ''},
+    // 7
+    {
+        title: 'Firebase Auth - Rust crate',
+        year: '2022',
+        content: [
+            'I work frequently with Firebase and when I begin to programing in Rust, there was no package for the Firebase tool. So I decided to crate one.',
+            'This crate will help initialize and integrate the Firebase Authentication service to the popular Actix web frame work (one of the fastest web frameworks out there)',
+        ],
+        tech: ['Rust', 'Firebase'],
+        link: 'https://crates.io/crates/firebase-auth',
+    },
     {title: '', client: '', year: '', content: [], tech: [], link: ''},
     {title: '', client: '', year: '', content: [], tech: [], link: ''},
 ];

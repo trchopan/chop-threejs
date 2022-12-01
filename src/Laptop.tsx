@@ -47,6 +47,7 @@ function Laptop(props: {open: boolean; hinge: any; screen?: number}) {
         text: JSX.Element | null;
     }[] = [
         {texture: null, text: null},
+        // 1
         {
             texture: isIOs()
                 ? useLoader(TextureLoader, '/cardano-globe.png')
@@ -61,6 +62,7 @@ function Laptop(props: {open: boolean; hinge: any; screen?: number}) {
                 />
             ),
         },
+        // 2
         {
             texture: isIOs()
                 ? useLoader(TextureLoader, '/near-line-connect.png')
@@ -75,20 +77,37 @@ function Laptop(props: {open: boolean; hinge: any; screen?: number}) {
                 />
             ),
         },
+        // 3
         {
             texture: isIOs()
-                ? useLoader(TextureLoader, '/firebase-auth.png')
-                : useVideoTexture('/firebase-auth.mp4', {}),
+                ? useLoader(TextureLoader, '/cardano-commands.png')
+                : useVideoTexture('/cardano-commands.mp4', {}),
             text: (
                 <LaptopProjectText
-                    title="Firebase Auth - Rust crate"
-                    titlePos={[-0.85, 7.7, 0.5]}
-                    text="A simple and small Rust Actix web framework Extractor for verifing JWT token from Firebase Authentication."
+                    title="Cardano Commands Stake Pool"
+                    titlePos={[-0.26, 7.7, 0.5]}
+                    text="Automate the steps in handling the cryptographic keys for Cardano Stake pool between pool owner and pool operator"
                     textPos={[-0.12, 6.7, 0.5]}
                     textWidth={7.5}
                 />
             ),
         },
+        // 4
+        {
+            texture: isIOs()
+                ? useLoader(TextureLoader, '/scheduled-blocks.png')
+                : useVideoTexture('/scheduled-blocks.mp4', {}),
+            text: (
+                <LaptopProjectText
+                    title="Scheduled Blocks"
+                    titlePos={[-1.85, 7.7, 0.5]}
+                    text="Use the Epoch Nonce seeds and compare with the Pool sigma derived VRF key of the Pool to calculate the block assignment schedule."
+                    textPos={[-0.12, 6.7, 0.5]}
+                    textWidth={7.5}
+                />
+            ),
+        },
+        // 5
         {
             texture: isIOs()
                 ? useLoader(TextureLoader, '/web-scalpel.png')
@@ -103,6 +122,7 @@ function Laptop(props: {open: boolean; hinge: any; screen?: number}) {
                 />
             ),
         },
+        // 6
         {
             texture: isIOs()
                 ? useLoader(TextureLoader, '/chess-bevy.png')
@@ -117,8 +137,21 @@ function Laptop(props: {open: boolean; hinge: any; screen?: number}) {
                 />
             ),
         },
-        {texture: null, text: null},
-        {texture: null, text: null},
+        // 7
+        {
+            texture: isIOs()
+                ? useLoader(TextureLoader, '/firebase-auth.png')
+                : useVideoTexture('/firebase-auth.mp4', {}),
+            text: (
+                <LaptopProjectText
+                    title="Firebase Auth - Rust crate"
+                    titlePos={[-0.85, 7.7, 0.5]}
+                    text="A simple and small Rust Actix web framework Extractor for verifing JWT token from Firebase Authentication."
+                    textPos={[-0.12, 6.7, 0.5]}
+                    textWidth={7.5}
+                />
+            ),
+        },
         {texture: null, text: null},
         {texture: null, text: null},
     ];
