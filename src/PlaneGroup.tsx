@@ -1,10 +1,11 @@
 import {Line, Text, useScroll} from '@react-three/drei';
 import {useFrame} from '@react-three/fiber';
-import {range} from 'lodash';
 import {useRef, useState} from 'react';
 import * as THREE from 'three';
 import {Vector3} from 'three';
 import {totalPages} from './store';
+import Geo from './Geo';
+import LinkText from './LinkText';
 
 function PlaneGroup() {
     const ref = useRef<any>(null);
@@ -23,7 +24,6 @@ function PlaneGroup() {
             pRef.current.fillOpacity = pRange;
             const cRange = scroll.range((totalPages - 1) / totalPages - 0.11, 1 / totalPages);
             cRef.current.fillOpacity = cRange;
-            console.log('>>', pRange, cRange, 1 / totalPages - 0.05);
         }
         setShowLines(scroll.visible(1 / totalPages + 0.11, 1));
     });
@@ -40,6 +40,15 @@ function PlaneGroup() {
                 [points1, points2, points3].map((points, i) => (
                     <Line key={i} points={points} color="#ff6266" lineWidth={2} />
                 ))}
+            {showLines && (
+                <group position={[0, -340, 6]}>
+                    <Geo />
+                    <LinkText position={[2, 0, 0]} text="Telegram" link="https://t.me/choptran"/>
+                    <LinkText position={[0, 0, 2]} text="Youtube" link="https://youtube.com/@choptran"/>
+                    <LinkText position={[-2, 0, 0]} text="Blog" link="http://chop.ink/" />
+                    <LinkText position={[0, 0, -2]} text="Github" link="https://github.com/trchopan/"/>
+                </group>
+            )}
             <Text
                 ref={pRef}
                 rotation={[Math.PI / 2, Math.PI, 0]}
@@ -60,7 +69,7 @@ function PlaneGroup() {
             <Text
                 ref={cRef}
                 rotation={[Math.PI / 2, Math.PI, 0]}
-                position={[0, -300, 7]}
+                position={[0, -340, 9]}
                 color={'#ff6266'}
                 fontSize={0.3}
                 maxWidth={10}

@@ -45,6 +45,18 @@ export const projectMap: Project[] = [
     },
     // 3
     {
+        title: 'Mini View Trader',
+        client: 'TQP trading group',
+        year: '2020',
+        content: [
+            'In this project, I build a trading bot for a group of Vietnamese traders. The bot make and manage orders on Binance Exchange using its API.',
+            'The bot using Firebase Cloud Function to run scheduled jobs to check and sync the orders. Then report the result and monitor the trades using a Dashboard build using VueJs',
+        ],
+        tech: ['Binance API', 'Crypto trading', 'Google Cloud Platform', 'Firebase'],
+        link: 'https://mini-view-trader-v2.web.app',
+    },
+    // 4
+    {
         title: 'Cardano Commands Stake Pools',
         client: 'ARMDA Stake Pool - armadacardano.io',
         year: '2021',
@@ -55,7 +67,7 @@ export const projectMap: Project[] = [
         tech: ['Cardano Blockchain', 'NodeJs', 'Google Cloud Platform'],
         link: 'https://github.com/trchopan/cardano-commands',
     },
-    // 4
+    // 5
     {
         title: 'Scheduled Blocks',
         year: '2022',
@@ -72,7 +84,7 @@ export const projectMap: Project[] = [
         ],
         link: 'https://github.com/trchopan/scheduled-blocks',
     },
-    // 5
+    // 6
     {
         title: 'Web Scalpel in Haskell',
         year: '2020',
@@ -84,7 +96,7 @@ export const projectMap: Project[] = [
         tech: ['Haskell', 'Puppeteer', 'Svelte', 'Raspberry Pi'],
         link: 'https://github.com/trchopan/web-scalpel',
     },
-    // 6
+    // 7
     {
         title: 'Chess using Bevy engine',
         year: '2022',
@@ -95,7 +107,7 @@ export const projectMap: Project[] = [
         tech: ['Rust', 'Bevy'],
         link: 'https://github.com/trchopan/chess-bevy',
     },
-    // 7
+    // 8
     {
         title: 'Firebase Auth - Rust crate',
         year: '2022',

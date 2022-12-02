@@ -1,6 +1,6 @@
 import {proxy} from 'valtio';
 
-export const projectPages = 8;
+export const projectPages = 8 + 1; // Add one for offset
 
 export const totalPages =
     1 + // Intro page

@@ -4,6 +4,8 @@ import {
     ContactShadows,
     Environment,
     Html,
+    OrbitControls,
+    PerspectiveCamera,
     Scroll,
     ScrollControls,
     Stats,
@@ -25,13 +27,15 @@ function App() {
 
     return (
         <>
-            <Canvas
-                camera={{
-                    position: [0, isMobile() ? 2 : 0, -30],
-                    fov: 35,
-                    zoom: isMobile() ? 0.9 : 1.3,
-                }}
-            >
+            <Canvas onPointerMove={e => console.log(e)}>
+                <pointLight position={[10, 10, 10]} intensity={1.5} color={'#f0f0f0'} />
+                <PerspectiveCamera
+                    makeDefault
+                    position={[0, isMobile() ? 2 : 0, -30]}
+                    fov={35}
+                    zoom={isMobile() ? 0.9 : 1.3}
+                />
+                <OrbitControls enablePan={false} enableZoom={false} />
                 <Suspense
                     fallback={
                         <Html center>
@@ -42,7 +46,6 @@ function App() {
                         </Html>
                     }
                 >
-                    <pointLight position={[10, 10, 10]} intensity={1.5} color={'#f0f0f0'} />
                     <ScrollControls pages={totalPages}>
                         <ScrollHelper />
                         <Scroll html>
