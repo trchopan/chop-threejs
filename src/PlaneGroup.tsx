@@ -3,7 +3,7 @@ import {useFrame} from '@react-three/fiber';
 import {useRef, useState} from 'react';
 import * as THREE from 'three';
 import {Vector3} from 'three';
-import {totalPages} from './store';
+import {isMobile, totalPages} from './store';
 import Geo from './Geo';
 import LinkText from './LinkText';
 
@@ -35,20 +35,6 @@ function PlaneGroup() {
     return (
         <mesh ref={ref} position={[0, -6, -400]} rotation={[Math.PI / -2, 0, 0]}>
             <planeGeometry args={[200, totalPages * 100, 100, 100]} />
-            <meshBasicMaterial wireframe color="#201b2c" />
-            {showLines &&
-                [points1, points2, points3].map((points, i) => (
-                    <Line key={i} points={points} color="#ff6266" lineWidth={2} />
-                ))}
-            {showLines && (
-                <group position={[0, -340, 6]}>
-                    <Geo />
-                    <LinkText position={[2, 0, 0]} text="Telegram" link="https://t.me/choptran"/>
-                    <LinkText position={[0, 0, 2]} text="Youtube" link="https://youtube.com/@choptran"/>
-                    <LinkText position={[-2, 0, 0]} text="Blog" link="http://chop.ink/" />
-                    <LinkText position={[0, 0, -2]} text="Github" link="https://github.com/trchopan/"/>
-                </group>
-            )}
             <Text
                 ref={pRef}
                 rotation={[Math.PI / 2, Math.PI, 0]}
@@ -66,10 +52,15 @@ function PlaneGroup() {
             >
                 Projects
             </Text>
+            <meshBasicMaterial wireframe color="#201b2c" />
+            {showLines &&
+                [points1, points2, points3].map((points, i) => (
+                    <Line key={i} points={points} color="#ff6266" lineWidth={2} />
+                ))}
             <Text
                 ref={cRef}
                 rotation={[Math.PI / 2, Math.PI, 0]}
-                position={[0, -340, 9]}
+                position={[0, -340, isMobile() ? 10 : 9]}
                 color={'#ff6266'}
                 fontSize={0.3}
                 maxWidth={10}
@@ -83,6 +74,23 @@ function PlaneGroup() {
             >
                 Contact Me
             </Text>
+            {showLines && (
+                <group position={[0, -340, isMobile() ? 6.8 : 6]}>
+                    <Geo />
+                    <LinkText position={[2, 0, 0]} text="Telegram" link="https://t.me/choptran" />
+                    <LinkText
+                        position={[0, 0, 2]}
+                        text="Youtube"
+                        link="https://youtube.com/@choptran"
+                    />
+                    <LinkText position={[-2, 0, 0]} text="Blog" link="http://chop.ink/" />
+                    <LinkText
+                        position={[0, 0, -2]}
+                        text="Github"
+                        link="https://github.com/trchopan/"
+                    />
+                </group>
+            )}
         </mesh>
     );
 }
