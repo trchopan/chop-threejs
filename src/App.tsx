@@ -27,19 +27,23 @@ function App() {
 
     return (
         <>
+
             <Canvas
                 camera={{
                     position: [0, isMobile() ? 2 : 0, -30],
                     fov: 35,
                     zoom: isMobile() ? 0.9 : 1.3,
                 }}
-
             >
                 <pointLight position={[10, 10, 10]} intensity={1.5} color={'#f0f0f0'} />
                 <Suspense
                     fallback={
                         <Html center>
                             <div className="loader">
+                                <div className="lds-ripple">
+                                    <div></div>
+                                    <div></div>
+                                </div>
                                 <div>Loading</div>
                                 <div>{progress.toFixed(0)} %</div>
                             </div>
