@@ -41,7 +41,7 @@ export const projectMap: Project[] = [
             'Rust',
             'Svelte',
         ],
-        link: 'https://chop.ink/posts/near-line-connect/',
+        link: 'https://blog.chop.dev/posts/near-line-connect/',
     },
     // 3
     {
