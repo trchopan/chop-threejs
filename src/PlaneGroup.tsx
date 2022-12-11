@@ -57,23 +57,6 @@ function PlaneGroup() {
                 [points1, points2, points3].map((points, i) => (
                     <Line key={i} points={points} color="#ff6266" lineWidth={2} />
                 ))}
-            <Text
-                ref={cRef}
-                rotation={[Math.PI / 2, Math.PI, 0]}
-                position={[0, -340, isMobile() ? 10 : 9]}
-                color={'#ff6266'}
-                fontSize={0.3}
-                maxWidth={10}
-                lineHeight={1}
-                letterSpacing={0.02}
-                textAlign={'left'}
-                font="/Play-Regular.ttf"
-                anchorX="center"
-                anchorY="middle"
-                fillOpacity={0}
-            >
-                Contact Me
-            </Text>
             {showLines && (
                 <group position={[0, -340, isMobile() ? 6.8 : 6]}>
                     <Geo />
@@ -83,7 +66,7 @@ function PlaneGroup() {
                         text="Youtube"
                         link="https://youtube.com/@choptran"
                     />
-                    <LinkText position={[-2, 0, 0]} text="Blog" link="http://chop.ink/" />
+                    <LinkText position={[-2, 0, 0]} text="Blog" link="http://blog.chop.dev/" />
                     <LinkText
                         position={[0, 0, -2]}
                         text="Github"

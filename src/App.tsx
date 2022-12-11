@@ -27,7 +27,6 @@ function App() {
 
     return (
         <>
-
             <Canvas
                 camera={{
                     position: [0, isMobile() ? 2 : 0, -30],
@@ -35,7 +34,6 @@ function App() {
                     zoom: isMobile() ? 0.9 : 1.3,
                 }}
             >
-                <pointLight position={[10, 10, 10]} intensity={1.5} color={'#f0f0f0'} />
                 <Suspense
                     fallback={
                         <Html center>
@@ -58,6 +56,7 @@ function App() {
                         <LaptopGroup />
                         <PlaneGroup />
                     </ScrollControls>
+                    <pointLight position={[10, 10, 10]} intensity={1.5} color={'#f0f0f0'} />
                     <ContactShadows position={[0, -4.5, 0]} scale={20} blur={2} far={4.5} />
                     <Environment preset="city" />
                 </Suspense>
