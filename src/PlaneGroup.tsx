@@ -10,7 +10,6 @@ import LinkText from './LinkText';
 function PlaneGroup() {
     const ref = useRef<any>(null);
     const pRef = useRef<any>(null);
-    const cRef = useRef<any>(null);
     const scroll = useScroll();
     const [showLines, setShowLines] = useState(false);
 
@@ -19,11 +18,9 @@ function PlaneGroup() {
             const target = scroll.offset * (totalPages * -32);
             ref.current.position.z = THREE.MathUtils.damp(ref.current.position.z, target, 4, delta);
         }
-        if (pRef.current && cRef.current) {
+        if (pRef.current) {
             const pRange = scroll.range(0.05, 1 / totalPages - 0.05);
             pRef.current.fillOpacity = pRange;
-            const cRange = scroll.range((totalPages - 1) / totalPages - 0.11, 1 / totalPages);
-            cRef.current.fillOpacity = cRange;
         }
         setShowLines(scroll.visible(1 / totalPages + 0.11, 1));
     });
