@@ -4,14 +4,12 @@ import {
     ContactShadows,
     Environment,
     Html,
-    OrbitControls,
-    PerspectiveCamera,
     Scroll,
     ScrollControls,
     Stats,
     useProgress,
 } from '@react-three/drei';
-import {Canvas} from '@react-three/fiber';
+import {Canvas, useLoader} from '@react-three/fiber';
 import LaptopGroup from './LaptopGroup';
 import Overlay from './Overlay';
 import {ScrollHelper} from './ScrollHelper';
@@ -44,6 +42,8 @@ function App() {
                                 </div>
                                 <div>Loading</div>
                                 <div>{progress.toFixed(0)} %</div>
+                                <div>{item}</div>
+                                <div>{loaded}</div>
                             </div>
                         </Html>
                     }
@@ -58,7 +58,7 @@ function App() {
                     </ScrollControls>
                     <pointLight position={[10, 10, 10]} intensity={1.5} color={'#f0f0f0'} />
                     <ContactShadows position={[0, -4.5, 0]} scale={20} blur={2} far={4.5} />
-                    <Environment preset="city" />
+                    <Environment files="/potsdamer_platz_1k.hdr"></Environment>
                 </Suspense>
                 {import.meta.env.DEV && <Stats />}
             </Canvas>
