@@ -41,7 +41,7 @@ export const projectMap: Project[] = [
             'Rust',
             'Svelte',
         ],
-        link: 'https://blog.chop.dev/posts/near-line-connect/',
+        link: 'https://chop.dev/posts/near-line-connect/',
     },
     // 3
     {
@@ -122,11 +122,24 @@ export const projectMap: Project[] = [
     {title: '', client: '', year: '', content: [], tech: [], link: ''},
 ];
 
-function ProjectDetail(props: {selected: number}) {
+function ProjectDetail(props: {selected: number; onBack: () => void}) {
     const [found, setFound] = useState<Project | null>(projectMap[props.selected] ?? null);
     useEffect(() => {
         setFound(projectMap[props.selected] ?? null);
     }, [props.selected]);
+
+    const onKeyDown = (event: KeyboardEvent) => {
+        if (event.key == 'Escape') {
+            props.onBack();
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('keydown', onKeyDown);
+        return () => {
+            window.removeEventListener('keydown', onKeyDown);
+        };
+    }, []);
 
     return (
         found && (

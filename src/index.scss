@@ -184,6 +184,17 @@ button:hover {
     }
 }
 
+.fixed-git {
+    position: fixed;
+    left: 0.5rem;
+    bottom: 0.5rem;
+    font-size: 1.5rem;
+    & > a {
+        text-decoration: none;
+        color: white;
+    }
+}
+
 @keyframes floating {
     0% {
         transform: translate(0, 0px);

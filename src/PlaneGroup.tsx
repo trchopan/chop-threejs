@@ -63,7 +63,7 @@ function PlaneGroup() {
                         text="Youtube"
                         link="https://youtube.com/@choptran"
                     />
-                    <LinkText position={[-2, 0, 0]} text="Blog" link="http://blog.chop.dev/" />
+                    <LinkText position={[-2, 0, 0]} text="Blog" link="http://chop.dev/" />
                     <LinkText
                         position={[0, 0, -2]}
                         text="Github"

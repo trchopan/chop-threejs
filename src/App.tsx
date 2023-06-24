@@ -9,7 +9,7 @@ import {
     Stats,
     useProgress,
 } from '@react-three/drei';
-import {Canvas, useLoader} from '@react-three/fiber';
+import {Canvas} from '@react-three/fiber';
 import LaptopGroup from './LaptopGroup';
 import Overlay from './Overlay';
 import {ScrollHelper} from './ScrollHelper';
@@ -49,7 +49,7 @@ function App() {
                     }
                 >
                     <ScrollControls pages={totalPages}>
-                        <ScrollHelper />
+                        {import.meta.env.MODE != 'production' && <ScrollHelper />}
                         <Scroll html>
                             <Overlay ref={overlay} />
                         </Scroll>
@@ -65,13 +65,27 @@ function App() {
             {snap.selected && (
                 <div className="fixed-detail styled-scrollbars">
                     <div className="fixed-container">
-                        <ProjectDetail selected={snap.selected} />
+                        <ProjectDetail
+                            selected={snap.selected}
+                            onBack={() => {
+                                store.selected = null;
+                            }}
+                        />
                     </div>
                     <button className="back-button" onClick={() => (store.selected = null)}>
                         Back
                     </button>
                 </div>
             )}
+            <div className="fixed-git">
+                <a
+                    className="no-decor"
+                    href="https://github.com/trchopan/chop-threejs"
+                    target="_blank"
+                >
+                    <span className="mdi mdi-github"></span>
+                </a>
+            </div>
         </>
     );
 }
