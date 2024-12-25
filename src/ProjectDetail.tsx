@@ -10,8 +10,25 @@ interface Project {
 }
 
 export const projectMap: Project[] = [
-    {title: '', client: '', year: '', content: [], tech: [], link: ''},
-    // 1
+    {title: '', client: '', year: '', content: [], tech: [], link: ''}, // Empty Spacing
+    {
+        title: 'Youtube Translate by chop.dev',
+        year: '2024',
+        content: [
+            'A service to help bridge language gaps and make educational content more accessible to everyone.',
+        ],
+        tech: ['Generative AI', 'Elixir', 'Phoenix Framework', 'Google Cloud Platform'],
+        link: 'https://yt.chop.dev/',
+    },
+    {
+        title: 'Liveprompt',
+        year: '2023',
+        content: [
+            'Control a teleprompter remotely in real-time using the web.',
+        ],
+        tech: ['Elixir', 'Liveview', 'PostgreSQL'],
+        link: 'https://liveprompt.chop.dev/',
+    },
     {
         title: 'Cardano Globe',
         client: 'LN₳TR - Cardano Stake Pool from Vietnam',
@@ -24,7 +41,6 @@ export const projectMap: Project[] = [
         tech: ['Cardano blockchain', 'Firebase', 'NodeJs', 'Vue + Vite'],
         link: 'https://globe.linatr.me/',
     },
-    // 2
     {
         title: 'Near Line Connect',
         client: 'LINE UIT Workshop',
@@ -43,7 +59,6 @@ export const projectMap: Project[] = [
         ],
         link: 'https://chop.dev/posts/near-line-connect/',
     },
-    // 3
     {
         title: 'Mini View Trader',
         client: 'TQP trading group',
@@ -55,7 +70,6 @@ export const projectMap: Project[] = [
         tech: ['Binance API', 'Crypto trading', 'Google Cloud Platform', 'Firebase'],
         link: 'https://mini-view-trader-v2.web.app',
     },
-    // 4
     {
         title: 'Cardano Commands Stake Pools',
         client: 'ARMDA Stake Pool - armadacardano.io',
@@ -67,7 +81,6 @@ export const projectMap: Project[] = [
         tech: ['Cardano Blockchain', 'NodeJs', 'Google Cloud Platform'],
         link: 'https://github.com/trchopan/cardano-commands',
     },
-    // 5
     {
         title: 'Scheduled Blocks',
         year: '2022',
@@ -84,7 +97,6 @@ export const projectMap: Project[] = [
         ],
         link: 'https://github.com/trchopan/scheduled-blocks',
     },
-    // 6
     {
         title: 'Web Scalpel in Haskell',
         year: '2020',
@@ -96,7 +108,6 @@ export const projectMap: Project[] = [
         tech: ['Haskell', 'Puppeteer', 'Svelte', 'Raspberry Pi'],
         link: 'https://github.com/trchopan/web-scalpel',
     },
-    // 7
     {
         title: 'Chess using Bevy engine',
         year: '2022',
@@ -107,7 +118,6 @@ export const projectMap: Project[] = [
         tech: ['Rust', 'Bevy'],
         link: 'https://github.com/trchopan/chess-bevy',
     },
-    // 8
     {
         title: 'Firebase Auth - Rust crate',
         year: '2022',
@@ -118,8 +128,8 @@ export const projectMap: Project[] = [
         tech: ['Rust', 'Firebase'],
         link: 'https://crates.io/crates/firebase-auth',
     },
-    {title: '', client: '', year: '', content: [], tech: [], link: ''},
-    {title: '', client: '', year: '', content: [], tech: [], link: ''},
+    {title: '', client: '', year: '', content: [], tech: [], link: ''}, // Empty Spacing
+    {title: '', client: '', year: '', content: [], tech: [], link: ''}, // Empty Spacing
 ];
 
 function ProjectDetail(props: {selected: number; onBack: () => void}) {

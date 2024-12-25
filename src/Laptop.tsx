@@ -47,7 +47,34 @@ function Laptop(props: {open: boolean; hinge: any; screen?: number}) {
         text: JSX.Element | null;
     }[] = [
         {texture: null, text: null},
-        // 1
+        {
+            texture: isIOs()
+                ? useLoader(TextureLoader, '/yt.png')
+                : useVideoTexture('/yt.m4v', {}),
+            text: (
+                <LaptopProjectText
+                    title="Youtube Translate (Yt)"
+                    titlePos={[-1.05, 7.8, 0.5]}
+                    text="A service to help bridge language gaps and make educational content more accessible to everyone."
+                    textPos={[-0.37, 6.7, 0.5]}
+                    textWidth={6.6}
+                />
+            ),
+        },
+        {
+            texture: isIOs()
+                ? useLoader(TextureLoader, '/liveprompt.png')
+                : useVideoTexture('/liveprompt.m4v', {}),
+            text: (
+                <LaptopProjectText
+                    title="Liveprompt"
+                    titlePos={[-2.35, 7.5, 0.5]}
+                    text="Control a teleprompter remotely in real-time using the web."
+                    textPos={[-0.37, 6.7, 0.5]}
+                    textWidth={6.6}
+                />
+            ),
+        },
         {
             texture: isIOs()
                 ? useLoader(TextureLoader, '/cardano-globe.jpg')
